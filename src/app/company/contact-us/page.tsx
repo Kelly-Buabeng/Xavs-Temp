@@ -33,8 +33,11 @@ export default function ContactPage() {
 
       {/* Hero Section */}
       <div
-        className="h-[600px] flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
-        style={{ backgroundImage: `url('/image3.jpg')` }}
+        className="h-screen flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
+        style={{
+          backgroundImage: `url('/image3.jpg')`,
+          backgroundAttachment: "fixed",
+        }}
       >
         <div className="w-full h-full absolute top-0 bg-black/60"></div>
         <div className="max-w-4xl mx-auto text-center p-6 z-10">

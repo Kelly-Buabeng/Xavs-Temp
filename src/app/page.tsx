@@ -127,14 +127,7 @@ export default function Home() {
         </div>
       </div>
 
-      <motion.section
-        className="py-16 dark:bg-black"
-        initial={{ x: -100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: 100, opacity: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        viewport={{ once: false, amount: 0.5 }}
-      >
+      <motion.section className="py-16 dark:bg-black">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 items-center">
           {/* Image Section */}
           <div
@@ -200,14 +193,7 @@ export default function Home() {
       </motion.section>
 
       {/* Services Section */}
-      <motion.section
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: -100, opacity: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        viewport={{ once: false, amount: 0.5 }}
-        className="flex flex-col md:flex-row mx-auto"
-      >
+      <motion.section className="flex flex-col md:flex-row mx-auto">
         {/* Sidebar */}
         <div className="w-full md:w-1/2 lg:w-1/3 bg-gray-100 dark:bg-gray-950 md:px-32 md:py-16 px-4 py-10 flex flex-col gap-7 ">
           <div className="flex justify-end w-full">
@@ -265,14 +251,7 @@ export default function Home() {
       </motion.section>
 
       {/* Industries Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 50, scale: 0.9 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.5 }}
-        className="py-16 bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-200"
-      >
+      <motion.section className="py-16 bg-gray-100 dark:bg-gray-950 text-gray-800 dark:text-gray-200">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <div className="flex flex-col items-center">
             <h2 className="text-3xl font-bold mb-6 text-gray-400">
@@ -344,11 +323,6 @@ export default function Home() {
       </motion.section>
 
       <motion.section
-        initial={{ opacity: 0, y: 50, scale: 0.9 }}
-        whileInView={{ opacity: 1, y: 0, scale: 1 }}
-        exit={{ opacity: 0, y: 50, scale: 0.9 }}
-        transition={{ duration: 1, ease: "easeOut" }}
-        viewport={{ once: false, amount: 0.5 }}
         className="relative text-white flex items-center w-full"
         style={{
           background: "url('/image1.png')",
@@ -401,14 +375,7 @@ export default function Home() {
       </motion.section>
 
       {/* Contact Sections */}
-      <motion.section
-        initial={{ x: 100, opacity: 0 }}
-        whileInView={{ x: 0, opacity: 1 }}
-        exit={{ x: -100, opacity: 0 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        viewport={{ once: false, amount: 0.5 }}
-        className="flex flex-col md:flex-row"
-      >
+      <motion.section className="flex flex-col md:flex-row">
         {/* Left Section */}
         <div className="w-full md:w-1/2 lg:w-1/3 bg-gray-100 dark:bg-gray-950 md:px-32 md:py-16 px-4 py-10 flex flex-col">
           <div className="flex justify-end w-full">
