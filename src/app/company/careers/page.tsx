@@ -17,9 +17,10 @@ export default function CareersPage() {
         <BotIcon />
       </div>
       <div
-        className="h-[600px] flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
+        className="h-screen flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
         style={{
           backgroundImage: `url('/image.png')`,
+          backgroundAttachment: "fixed",
         }}
       >
         <div className="w-full h-full absolute top-0 bg-black/60"></div>
