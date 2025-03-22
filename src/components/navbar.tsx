@@ -32,7 +32,7 @@ export default function MainNavbar() {
           <div>
             <Link href="/">
               <h1 className="text-lg font-bold text-black md:text-white">
-                XAVS<span className="text-blue-500">TECH</span>
+                XAVS<span className="text-blue-500">LAB</span>
               </h1>
             </Link>
           </div>
@@ -41,7 +41,7 @@ export default function MainNavbar() {
           <ul className="hidden lg:flex gap-1 relative text-white">
             <div>
               <Link
-                href="#"
+                href="/services"
                 className={`block px-4 py-2 text-sm hover:bg-blue-700  ${
                   isScrolled
                     ? "dark:text-white text-black hover:text-white"
@@ -82,7 +82,7 @@ export default function MainNavbar() {
                     </Link>
                   </div>
                   <Link
-                    href="#"
+                    href="/company/about-us"
                     className="block px-4 py-2 text-sm hover:bg-gray-200 dark:hover:bg-gray-950"
                   >
                     <h1 className="dark:text-white text-black">About Us</h1>
@@ -192,7 +192,7 @@ export default function MainNavbar() {
               <Link href="/company/contact-us" className="text-sm p-2">
                 Contact Us
               </Link>
-              <Link href="/about" className="text-sm p-2">
+              <Link href="/about-us" className="text-sm p-2">
                 About Us
               </Link>
               <Link

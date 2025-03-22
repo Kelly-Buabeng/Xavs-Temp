@@ -116,12 +116,16 @@ export default function Home() {
               cybersecurity, and cloud solutions. Call-to-Action (CTA) Buttons.
             </p>
             <div className="flex md:gap-4 mt-4 flex-wrap gap-2">
-              <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold mt-4 hover:bg-blue-700 transition duration-300">
-                Get Started
-              </button>
-              <button className="border-blue-600 text-blue-500 px-6 py-3 rounded-full font-semibold mt-4 hover:bg-blue-700 hover:text-white hover:border-blue-700 border-[2px] transition duration-300">
-                Book a Consultation
-              </button>
+              <Link href={"/company/about-us"}>
+                <button className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold mt-4 hover:bg-blue-700 transition duration-300">
+                  Get Started
+                </button>
+              </Link>
+              <Link href={"/company/contact-us"}>
+                <button className="border-blue-600 text-blue-500 px-6 py-3 rounded-full font-semibold mt-4 hover:bg-blue-700 hover:text-white hover:border-blue-700 border-[2px] transition duration-300">
+                  Book a Consultation
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -182,7 +186,7 @@ export default function Home() {
 
             <div className="mt-6">
               <a
-                href="#"
+                href="/company/contact-us"
                 className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
               >
                 Book a Demo
@@ -195,7 +199,7 @@ export default function Home() {
       {/* Services Section */}
       <motion.section className="flex flex-col md:flex-row mx-auto">
         {/* Sidebar */}
-        <div className="w-full md:w-1/2 lg:w-1/3 bg-gray-100 dark:bg-gray-950 md:px-32 md:py-16 px-4 py-10 flex flex-col gap-7 ">
+        <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 bg-gray-100 dark:bg-gray-950 md:px-32 md:py-16 px-4 py-10 flex flex-col gap-7 ">
           <div className="flex justify-end w-full">
             <h2 className="text-6xl font-bold text-gray-300 text-right">
               OUR <br /> SERVICES
@@ -313,7 +317,7 @@ export default function Home() {
           <div className="mt-8 flex justify-center items-center gap-2 flex-col">
             <p>Is your business ready for AI transformation?</p>
             <a
-              href="#"
+              href="/company/contact-us"
               className="bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 transition duration-300"
             >
               Get a Free Consultation
@@ -377,7 +381,7 @@ export default function Home() {
       {/* Contact Sections */}
       <motion.section className="flex flex-col md:flex-row">
         {/* Left Section */}
-        <div className="w-full md:w-1/2 lg:w-1/3 bg-gray-100 dark:bg-gray-950 md:px-32 md:py-16 px-4 py-10 flex flex-col">
+        <div className="w-full md:w-1/2 lg:w-1/2 xl:w-1/3 bg-gray-100 dark:bg-gray-950 md:px-32 md:py-16 px-4 py-10 flex flex-col">
           <div className="flex justify-end w-full">
             <h2 className="text-6xl font-bold text-gray-300 text-right">
               CONTACT <br /> US

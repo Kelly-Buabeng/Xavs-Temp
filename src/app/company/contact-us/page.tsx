@@ -1,5 +1,7 @@
 "use client";
 import BotIcon from "@/components/bot";
+import { services } from "@/components/data";
+import Footer from "@/components/footer";
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
 import { useState } from "react";
 
@@ -166,6 +168,9 @@ export default function ContactPage() {
           <Twitter />
         </div>
       </section>
+
+      {/* Footer Section */}
+      <Footer services={services} />
     </div>
   );
 }

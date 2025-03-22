@@ -1,6 +1,7 @@
 "use client";
 import BotIcon from "@/components/bot";
-import { jobListings } from "@/components/data";
+import { jobListings, services } from "@/components/data";
+import Footer from "@/components/footer";
 
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
@@ -71,6 +72,7 @@ export default function CareersPage() {
           ))}
         </div>
       </div>
+      <Footer services={services} />
     </div>
   );
 }

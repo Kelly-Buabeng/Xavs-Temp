@@ -91,7 +91,7 @@ export default function BotChat({ onClose }: { onClose: () => void }) {
       <div className="flex items-center border-t p-3">
         <input
           type="text"
-          className="flex-1 p-2 border rounded-lg focus:outline-none"
+          className="flex-1 p-2 border rounded-lg focus:outline-none text-black"
           placeholder="Type a message..."
           value={input}
           onChange={(e) => setInput(e.target.value)}
