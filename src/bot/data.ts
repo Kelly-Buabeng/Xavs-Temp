@@ -2,13 +2,19 @@ export const data: Record<string, string> = {
   // Basic Conversations
   Hello: "Hello! 😊 How can I assist you today?",
 
+  hello: "Hello! 😊 How can I assist",
+
   Hi: "Hi there! How can I help you?",
+
+  hi: "Hi there! How can I help you?",
 
   yo: "Yo! What's up? 😄",
 
   Yo: "Yo! What's up? 😄",
 
   Hey: "Hey! What can I do for you today?",
+
+  hey: "Hey! What can I do for you today?",
 
   "How are you?":
     "I'm just a bot, but I'm here and ready to assist you! How about you?",
