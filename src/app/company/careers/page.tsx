@@ -3,7 +3,7 @@
 import BotIcon from "@/components/bot";
 import { jobListings, services } from "@/components/data";
 import Footer from "@/components/footer";
-import { ChevronDown, ChevronUp, MapPin, Clock, Briefcase, Search } from "lucide-react";
+import { ChevronDown, MapPin, Clock, Briefcase, Search } from "lucide-react";
 import { useState } from "react";
 import { motion } from "framer-motion";
 
