@@ -115,7 +115,7 @@ export default function About() {
               <h3 className="text-xl font-semibold">Our Vision</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
-              To be Africa's leading technology partner, transforming industries through innovation and building a digitally empowered future for businesses across the continent.
+              To be Africa&apos;s leading technology partner, transforming industries through innovation and building a digitally empowered future for businesses across the continent.
             </p>
           </div>
         </section>
