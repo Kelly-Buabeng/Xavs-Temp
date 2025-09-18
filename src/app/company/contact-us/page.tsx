@@ -11,6 +11,8 @@ export default function ContactPage() {
     email: "",
     message: "",
   });
+  const [activeLocation, setActiveLocation] = useState("Accra");
+
 
   const [submitted, setSubmitted] = useState(false);
 
@@ -113,15 +115,59 @@ export default function ContactPage() {
               </div>
             </div>
             
-            <div className="pt-6 h-64 rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61721.31638275849!2d-0.16286549038425105!3d5.623273753349461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b13b0062aad%3A0x75de9717e31b2442!2sAccra%20Mall!5e0!3m2!1sen!2sus!4v1741818998308!5m2!1sen!2sus"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                className="rounded-lg"
-              ></iframe>
+            {/* Location Section with Multiple Maps */}
+            <div className="pt-6">
+              <h3 className="font-semibold mb-3">Our Locations</h3>
+
+              <div className="flex space-x-3 mb-4">
+                {["Accra", "Nigeria", "UK"].map((loc) => (
+                  <button
+                    key={loc}
+                    onClick={() => setActiveLocation(loc)}
+                    className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                      activeLocation === loc
+                        ? "bg-blue-500 text-white"
+                        : "bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600"
+                    }`}
+                  >
+                    {loc}
+                  </button>
+                ))}
+              </div>
+
+              <div className="h-64 rounded-lg overflow-hidden">
+                {activeLocation === "Accra" && (
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61721.31638275849!2d-0.16286549038425105!3d5.623273753349461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b13b0062aad%3A0x75de9717e31b2442!2sAccra%20Mall!5e0!3m2!1sen!2sus!4v1741818998308!5m2!1sen!2sus"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    className="rounded-lg"
+                  ></iframe>
+                )}
+
+                {activeLocation === "Nigeria" && (
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.484590605551!2d3.379206515334495!3d6.524379525232598!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8b15a884b5d9%3A0x8c6c9936e5b9b1f6!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1741819000000!5m2!1sen!2sng"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    className="rounded-lg"
+                  ></iframe>
+                )}
+
+                {activeLocation === "UK" && (
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19801.50228789864!2d-0.1277585!3d51.5073509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48761b333aaaabbb%3A0x1234567890abcdef!2sLondon%2C%20UK!5e0!3m2!1sen!2suk!4v1741819012345!5m2!1sen!2suk"
+                    width="100%"
+                    height="100%"
+                    loading="lazy"
+                    className="rounded-lg"
+                  ></iframe>
+                )}
+              </div>
             </div>
+
           </div>
           
           {/* Contact Form */}

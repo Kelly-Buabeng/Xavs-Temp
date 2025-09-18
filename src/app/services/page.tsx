@@ -19,46 +19,30 @@ export default function Services() {
 
       {/* Hero Section */}
       <div
-        className="h-screen flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
+        className="relative h-[70vh] flex items-center justify-center bg-cover bg-center bg-fixed"
         style={{
           backgroundImage: `url('/services.jpg')`,
-          backgroundAttachment: "fixed",
         }}
       >
-        <div className="absolute inset-0 bg-black/70"></div>
-        <div className="max-w-4xl mx-auto text-center p-6 z-10">
-          <h1 className="text-5xl font-extrabold text-gray-100 tracking-wide">
-            Services
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent"></div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-extrabold text-white leading-tight drop-shadow-lg">
+            Our Services
           </h1>
-          <p className="text-lg mt-4 text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            We offer a wide range of services to help businesses automate,
-            secure, and scale. Explore our offerings below.
+          <p className="text-lg md:text-xl mt-6 text-gray-200 max-w-2xl mx-auto leading-relaxed">
+            Empowering businesses with automation, cybersecurity, and scalable
+            solutions designed for the future.
           </p>
+
+          
         </div>
       </div>
 
-      {/* Our Mission Section */}
-      <section
-        className="relative bg-gray-900 dark:bg-gray-800 text-gray-200"
-        style={{
-          backgroundImage: `url('/about1.jpg')`,
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        {/* Dark Overlay */}
-        <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-        {/* Content */}
-        <div className="relative max-w-4xl mx-auto text-center py-16 px-6 md:px-12 lg:px-24 z-20">
-          <h2 className="text-3xl font-bold mb-6">THE SERVICES WE PROVIDE</h2>
-          <p className="text-lg leading-relaxed">
-            We offer a comprehensive suite of services to help businesses
-            automate, secure, and scale. Our offerings include:
-          </p>
-        </div>
-      </section>
+      
 
       <section className="flex flex-col md:flex-row mx-auto">
         {/* Sidebar */}
