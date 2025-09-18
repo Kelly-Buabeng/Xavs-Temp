@@ -14,6 +14,10 @@ import {
   MapPin,
   Phone,
   MessageCircle,
+  Cpu,
+  Shield,
+  Cloud,
+  Building,
 } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -67,7 +71,6 @@ export default function Home() {
     return () => clearInterval(blinkInterval);
   }, []);
 
-
   return (
     <div className="relative min-h-screen bg-gradient-to-br from-gray-50 via-white to-blue-50 dark:from-gray-950 dark:via-gray-900 dark:to-blue-950">
       {/* Floating Bot Icon */}
@@ -77,7 +80,9 @@ export default function Home() {
 
       {/* Hero Section */}
       <motion.section
-        className={`h-[90vh] flex items-center justify-start bg-cover bg-center relative transition-opacity duration-1000 ${fade ? "opacity-100" : "opacity-0"}`}
+        className={`h-[90vh] flex items-center justify-start bg-cover bg-center relative transition-opacity duration-1000 ${
+          fade ? "opacity-100" : "opacity-0"
+        }`}
         style={{ backgroundImage: `url('${currentImage}')` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -92,7 +97,12 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             {displayText}
-            <span className={blink ? "inline" : "invisible"} aria-label="blinking cursor">|</span>
+            <span
+              className={blink ? "inline" : "invisible"}
+              aria-label="blinking cursor"
+            >
+              |
+            </span>
           </motion.h1>
           <motion.p
             className="text-2xl mt-2 text-gray-200 max-w-xl font-medium drop-shadow"
@@ -100,7 +110,8 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            We automate, secure, and optimize businesses with cutting-edge AI, cybersecurity, and cloud solutions.
+            We automate, secure, and optimize businesses with cutting-edge AI,
+            cybersecurity, and cloud solutions.
           </motion.p>
           <motion.div
             className="flex flex-wrap gap-4 mt-4"
@@ -122,9 +133,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-      {/* About Us Section – Clean & Modern */}
-
-      {/* About Us Section – Clean & Modern */}
+      {/* About Us Section */}
       <motion.section
         className="py-28 bg-white/90 dark:bg-gray-900/90 backdrop-blur-xl"
         initial={{ opacity: 0, y: 40 }}
@@ -154,24 +163,26 @@ export default function Home() {
               About Us
             </h2>
             <p className="text-xl text-gray-700 dark:text-gray-300 leading-relaxed mb-12">
-              XAVS Technologies is a Ghanaian-based <strong>AI and cybersecurity company</strong> helping businesses 
-              automate, secure, and scale with innovative solutions in AI, cloud, and next-gen security. 
-              Our mission is to empower enterprises across Africa and beyond with future-ready technology.
+              XAVS Technologies is a Ghanaian-based{" "}
+              <strong>AI and cybersecurity company</strong> helping businesses
+              automate, secure, and scale with innovative solutions in AI, cloud,
+              and next-gen security. Our mission is to empower enterprises across
+              Africa and beyond with future-ready technology.
             </p>
 
-            {/* Key Points (icon + text) */}
+            {/* Key Points (icons + text) */}
             <div className="grid sm:grid-cols-2 gap-6">
               {[
-                { icon: "⚡", title: "AI Automation" },
-                { icon: "🛡️", title: "Cybersecurity" },
-                { icon: "☁️", title: "Cloud Solutions" },
-                { icon: "🏦", title: "Industry-Specific AI" },
+                { icon: <Cpu size={28} className="text-blue-600" />, title: "AI Automation" },
+                { icon: <Shield size={28} className="text-blue-600" />, title: "Cybersecurity" },
+                { icon: <Cloud size={28} className="text-blue-600" />, title: "Cloud Solutions" },
+                { icon: <Building size={28} className="text-blue-600" />, title: "Industry-Specific AI" },
               ].map((item, i) => (
                 <div
                   key={i}
                   className="flex items-center gap-4 bg-gray-50/80 dark:bg-gray-800/80 rounded-2xl p-5 shadow hover:shadow-xl transition-all border border-gray-100 dark:border-gray-800"
                 >
-                  <span className="text-3xl">{item.icon}</span>
+                  {item.icon}
                   <p className="font-semibold text-gray-800 dark:text-gray-200">
                     {item.title}
                   </p>
@@ -189,9 +200,7 @@ export default function Home() {
         </div>
       </motion.section>
 
-
       {/* Our Services Section */}
-
       <section className="relative py-24 bg-gradient-to-br from-gray-900 via-gray-800 to-blue-950 text-white">
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent rounded-b-3xl" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mb-20">
@@ -261,7 +270,6 @@ export default function Home() {
       </section>
 
       {/* Industries Section */}
-
       <motion.section className="py-20 bg-gray-100/90 dark:bg-gray-950/90 text-gray-800 dark:text-gray-200">
         <div className="max-w-6xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-extrabold mb-12 text-gray-700 dark:text-gray-300 tracking-tight">
@@ -325,7 +333,6 @@ export default function Home() {
       </motion.section>
 
       {/* Contact Us Section */}
-
       <motion.section
         className="py-24 bg-gradient-to-br from-blue-50 via-white to-blue-100 dark:from-gray-900 dark:via-gray-950 dark:to-blue-950"
         initial={{ opacity: 0, y: 50 }}
@@ -423,8 +430,8 @@ export default function Home() {
         </div>
       </motion.section>
 
-  {/* Footer */}
-  <Footer services={services} />
+      {/* Footer */}
+      <Footer services={services} />
     </div>
   );
 }
