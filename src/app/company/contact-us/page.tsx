@@ -2,7 +2,7 @@
 import BotIcon from "@/components/bot";
 import { services } from "@/components/data";
 import Footer from "@/components/footer";
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react";
+import { Facebook, Instagram, Twitter, Youtube, Mail, Phone, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export default function ContactPage() {
@@ -33,9 +33,9 @@ export default function ContactPage() {
         <BotIcon />
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Section - Made more compact */}
       <div
-        className="h-screen flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
+        className="h-60 flex items-center justify-center bg-cover bg-center relative transition-opacity duration-1000"
         style={{
           backgroundImage: `url('/image3.jpg')`,
           backgroundAttachment: "fixed",
@@ -50,23 +50,87 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Contact Form */}
-      <section className="bg-white dark:bg-gray-950 w-full flex flex-col items-center pb-10">
-        <div className="my-6 md:max-w-3xl px-5 w-full text-center">
-          <h1 className="dark:text-gray-200 text-gray-700">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
-            similique eos voluptate numquam, inventore ea ipsa maiores esse quia
-            fugiat laborum labore. Officiis aperiam iure dolores ab architecto
-            atque ea!
-          </h1>
+      {/* Main Content - More compact layout */}
+      <div className="max-w-7xl mx-auto px-4 py-8">
+        <div className="text-center mb-10">
+          <p className="dark:text-gray-200 text-gray-700 max-w-3xl mx-auto">
+            Have questions or want to discuss a project? Reach out to our team and we'll get back to you as soon as possible.
+          </p>
         </div>
-        <div className="max-w-7xl w-full mx-auto grid md:grid-cols-2 grid-cols-1 gap-5">
-          <div className="px-3">
+
+        <div className="grid md:grid-cols-2 gap-10">
+          {/* Contact Information */}
+          <div className="space-y-6">
+            <h2 className="text-2xl font-bold text-blue-500">Get In Touch</h2>
+            
+            <div className="space-y-4">
+              <div className="flex items-start">
+                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4">
+                  <Phone className="text-blue-500 h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Phone</h3>
+                  <p className="text-gray-600 dark:text-gray-400">+1 (555) 123-4567</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4">
+                  <Mail className="text-blue-500 h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Email</h3>
+                  <p className="text-gray-600 dark:text-gray-400">hello@xavstech.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-start">
+                <div className="bg-blue-100 dark:bg-blue-900/30 p-3 rounded-full mr-4">
+                  <MapPin className="text-blue-500 h-5 w-5" />
+                </div>
+                <div>
+                  <h3 className="font-semibold">Address</h3>
+                  <p className="text-gray-600 dark:text-gray-400">123 Tech Street, Accra, Ghana</p>
+                </div>
+              </div>
+            </div>
+            
+            <div className="pt-4">
+              <h3 className="font-semibold mb-3">Follow Us</h3>
+              <div className="flex space-x-4">
+                <a href="#" className="bg-gray-100 dark:bg-gray-800 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition">
+                  <Facebook className="h-5 w-5" />
+                </a>
+                <a href="#" className="bg-gray-100 dark:bg-gray-800 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="bg-gray-100 dark:bg-gray-800 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition">
+                  <Instagram className="h-5 w-5" />
+                </a>
+                <a href="#" className="bg-gray-100 dark:bg-gray-800 p-3 rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/30 transition">
+                  <Youtube className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+            
+            <div className="pt-6 h-64 rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61721.31638275849!2d-0.16286549038425105!3d5.623273753349461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b13b0062aad%3A0x75de9717e31b2442!2sAccra%20Mall!5e0!3m2!1sen!2sus!4v1741818998308!5m2!1sen!2sus"
+                width="100%"
+                height="100%"
+                loading="lazy"
+                className="rounded-lg"
+              ></iframe>
+            </div>
+          </div>
+          
+          {/* Contact Form */}
+          <div>
             <form
               onSubmit={handleSubmit}
-              className="p-6 rounded-lg shadow-lg dark:shadow-gray-900/80"
+              className="p-6 rounded-lg shadow-lg dark:shadow-gray-900/80 bg-white dark:bg-gray-900"
             >
-              <div className="mb-4 ">
+              <div className="mb-4">
                 <label className="block text-gray-700 dark:text-gray-300 text-sm font-bold mb-2">
                   Name
                 </label>
@@ -115,59 +179,17 @@ export default function ContactPage() {
                 {submitted ? "Message Sent!" : "Send Message"}
               </button>
             </form>
-          </div>
-          <div className="w-full p-8 flex flex-col items-center justify-center">
-            <h2 className="text-xl font-bold text-blue-500 mb-4">Reach Us</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-4 text-center">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Felis
-              diam lectus sapien.
-            </p>
-            <div className="flex space-x-4 mb-4">
-              <a
-                href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-500"
-              >
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-500"
-              >
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-500"
-              >
-                <i className="fab fa-google"></i>
-              </a>
-              <a
-                href="#"
-                className="text-gray-600 dark:text-gray-300 hover:text-blue-500"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
-            <div className="w-full h-[500px] md:h-64 bg-gray-300 rounded-lg overflow-hidden">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61721.31638275849!2d-0.16286549038425105!3d5.623273753349461!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf9b13b0062aad%3A0x75de9717e31b2442!2sAccra%20Mall!5e0!3m2!1sen!2sus!4v1741818998308!5m2!1sen!2sus"
-                width="600"
-                height="600"
-                loading="lazy"
-              ></iframe>
+            
+            <div className="mt-8 p-6 bg-gray-50 dark:bg-gray-800 rounded-lg">
+              <h3 className="font-semibold mb-3">Response Time</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
+                We typically respond to all inquiries within 24 hours during business days. 
+                For urgent matters, please call us directly.
+              </p>
             </div>
           </div>
         </div>
-      </section>
-
-      <section>
-        <div className="flex justify-center items-center gap-6 pb-10 bg-white dark:bg-gray-950">
-          <Instagram />
-          <Facebook />
-          <Youtube />
-          <Twitter />
-        </div>
-      </section>
+      </div>
 
       {/* Footer Section */}
       <Footer services={services} />

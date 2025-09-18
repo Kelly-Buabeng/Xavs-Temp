@@ -144,7 +144,7 @@ export default function Home() {
           ></div>
 
           {/* Content Section */}
-          <div className="text-center md:text-left dark:bg-gray-950 p-5 bg-gray-100 rounded-r-md">
+          <div className="text-left md:text-left dark:bg-gray-950 p-5 bg-gray-100 rounded-r-md">
             <h2 className="text-3xl font-bold text-gray-800 dark:text-gray-200 mb-4">
               About Us
             </h2>

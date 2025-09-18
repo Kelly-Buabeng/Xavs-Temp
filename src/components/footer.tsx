@@ -1,98 +1,134 @@
-import { Instagram, Facebook, Twitter, Youtube } from "lucide-react";
+import { Instagram, Facebook, Twitter, Youtube, Mail, Phone, MapPin, Send } from "lucide-react";
 import Link from "next/link";
 import { FooterProps } from "../../types";
 
 export default function Footer({ services }: FooterProps) {
   return (
-    <div className="dark:text-white">
-      <div className="dark:bg-gray-950 bg-gray-100 min-h-[500px] flex justify-center items-center p-4">
-        <div className="flex flex-col items-center gap-10 w-full max-w-[1200px] px-4">
-          {/* Newsletter Section */}
-          <div className="flex flex-col items-center gap-2 text-center">
-            <h1 className="text-3xl font-semibold">Join Our Newsletter</h1>
-            <p className="max-w-[500px] text-sm">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aperiam
-              minus maiores vitae itaque eum provident.
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+          {/* Brand Section */}
+          <div className="lg:col-span-2">
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+              XAVS TECH
+            </h1>
+            <p className="mt-4 text-gray-300 max-w-md">
+              Leading the digital transformation in Africa through AI, cybersecurity, and cloud innovation.
             </p>
-          </div>
-
-          {/* Subscription Input */}
-          <div className="flex flex-col md:flex-row gap-2 justify-center items-center w-full max-w-[500px]">
-            <input
-              type="text"
-              name="subscribe"
-              id="subscribe"
-              className="p-3 w-full md:w-[300px] outline-none text-black rounded-md md:rounded-l-md"
-              placeholder="Enter email for weekly newsletter."
-            />
-            <button className="bg-blue-500 p-3 w-full md:w-auto rounded-md md:rounded-r-md text-white">
-              Subscribe
-            </button>
-          </div>
-
-          {/* Footer Content */}
-          <div className="flex flex-wrap justify-center items-start gap-10 lg:gap-20 w-full">
-            {/* Logo & Contact */}
-            <div className="max-w-[400px] flex flex-col gap-4 text-center md:text-left">
-              <h1 className="text-2xl font-semibold">LOGO</h1>
-              <p className="text-sm">Location, address</p>
-              <div className="flex flex-col gap-2">
-                <p className="text-sm">godfredquarm123@gmail.com</p>
-                <p className="text-sm">+233 54 540 5939</p>
+            
+            <div className="mt-6 space-y-3">
+              <div className="flex items-center">
+                <MapPin className="h-5 w-5 text-blue-400 mr-3" />
+                <span className="text-gray-300">Accra, Ghana</span>
               </div>
-              <div className="flex justify-center md:justify-start items-center gap-6">
-                <Instagram />
-                <Facebook />
-                <Youtube />
-                <Twitter />
+              <div className="flex items-center">
+                <Mail className="h-5 w-5 text-blue-400 mr-3" />
+                <span className="text-gray-300">godfredquarm123@gmail.com</span>
+              </div>
+              <div className="flex items-center">
+                <Phone className="h-5 w-5 text-blue-400 mr-3" />
+                <span className="text-gray-300">+233 54 540 5939</span>
               </div>
             </div>
+            
+            <div className="flex mt-6 space-x-4">
+              <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-blue-500 transition">
+                <Facebook className="h-5 w-5" />
+              </a>
+              <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-pink-500 transition">
+                <Instagram className="h-5 w-5" />
+              </a>
+              <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-blue-400 transition">
+                <Twitter className="h-5 w-5" />
+              </a>
+              <a href="#" className="bg-gray-800 p-2 rounded-full hover:bg-red-500 transition">
+                <Youtube className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
 
-            {/* Links Section */}
-            <div className="flex flex-wrap justify-center gap-10">
-              {[
-                {
-                  title: "Explore",
-                  links: ["About Us", "Bookmarks", "Sign Up"],
-                },
-                {
-                  title: "Customer Service",
-                  links: [
-                    "Contact Us",
-                    "Help Center",
-                    "Store Pickup",
-                    "Accessibility",
-                  ],
-                },
-                {
-                  title: "Policy",
-                  links: [
-                    "Return Policy",
-                    "Terms Of Use",
-                    "Security",
-                    "Privacy",
-                  ],
-                },
-                { title: "Services", links: services },
-              ].map((section, index) => (
-                <div
-                  key={index}
-                  className="flex flex-col gap-6 text-center md:text-left"
-                >
-                  <h1 className="text-xl font-semibold">{section.title}</h1>
-                  <ul className="flex flex-col gap-2">
-                    {section.links.map((link, idx) => (
-                      <Link href={"#"} key={idx} className="text-sm">
-                        {typeof link === "string" ? link : link.heading}
-                      </Link>
-                    ))}
-                  </ul>
-                </div>
+          {/* Explore Links */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 relative inline-block">
+              Explore
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-blue-500"></span>
+            </h3>
+            <ul className="space-y-3">
+              {["About Us", "Bookmarks", "Sign Up"].map((link, idx) => (
+                <li key={idx}>
+                  <Link href="#" className="text-gray-300 hover:text-white transition">
+                    {link}
+                  </Link>
+                </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Customer Service */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 relative inline-block">
+              Support
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-blue-500"></span>
+            </h3>
+            <ul className="space-y-3">
+              {["Contact Us", "Help Center", "Store Pickup", "Accessibility"].map((link, idx) => (
+                <li key={idx}>
+                  <Link href="#" className="text-gray-300 hover:text-white transition">
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div>
+            <h3 className="text-lg font-semibold mb-6 relative inline-block">
+              Services
+              <span className="absolute bottom-0 left-0 w-1/2 h-0.5 bg-blue-500"></span>
+            </h3>
+            <ul className="space-y-3">
+              {services.map((service, idx) => (
+                <li key={idx}>
+                  <Link href="#" className="text-gray-300 hover:text-white transition">
+                    {service.heading}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        {/* Newsletter Section */}
+        <div className="mt-16 pt-10 border-t border-gray-700">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-center md:text-left">
+              <h3 className="text-xl font-semibold">Stay Updated</h3>
+              <p className="text-gray-300 mt-2">
+                Subscribe to our newsletter for the latest updates and offers.
+              </p>
+            </div>
+            
+            <div className="flex flex-col sm:flex-row gap-2 w-full md:w-auto">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                className="px-4 py-3 bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-white w-full"
+              />
+              <button className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center justify-center transition">
+                <span>Subscribe</span>
+                <Send className="ml-2 h-4 w-4" />
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Copyright */}
+        <div className="mt-12 pt-6 border-t border-gray-700 text-center text-gray-400 text-sm">
+          <p>© {new Date().getFullYear()} XAVS Technologies. All rights reserved.</p>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 }
