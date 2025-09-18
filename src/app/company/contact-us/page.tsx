@@ -68,7 +68,7 @@ export default function ContactPage() {
           className="text-center mb-12"
         >
           <p className="dark:text-gray-200 text-gray-700 max-w-3xl mx-auto text-lg">
-            Have questions or want to discuss a project? Reach out to our team and we'll get back to you as soon as possible.
+            Have questions or want to discuss a project? Reach out to our team and we&apos;ll get back to you as soon as possible.
           </p>
         </motion.div>
 

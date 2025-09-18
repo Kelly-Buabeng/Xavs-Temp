@@ -155,7 +155,7 @@ export default function About() {
         <section className="text-center py-10 bg-blue-50 dark:bg-blue-900/20 rounded-xl mb-10">
           <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Business?</h2>
           <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
-            Let's discuss how our solutions can help your organization thrive in the digital age.
+            Let&apos;s discuss how our solutions can help your organization thrive in the digital age.
           </p>
           <Link 
             href="/company/contact-us" 
