@@ -53,7 +53,7 @@ export default function ContactPage() {
             Contact Us
           </h1>
           <p className="text-lg mt-4 text-blue-100 font-medium">
-            We'd love to hear from you!
+            We&apos;d love to hear from you!
           </p>
         </motion.div>
       </div>
