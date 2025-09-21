@@ -24,7 +24,7 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 3000);
@@ -212,7 +212,15 @@ function SocialIcon({ href, Icon }: { href: string; Icon: React.ElementType }) {
   );
 }
 
-function FormInput({ id, label, value, onChange, type = "text" }: any) {
+interface FormInputProps {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  type?: string;
+}
+
+function FormInput({ id, label, value, onChange, type = "text" }: FormInputProps) {
   return (
     <div className="mb-6">
       <label
@@ -234,7 +242,14 @@ function FormInput({ id, label, value, onChange, type = "text" }: any) {
   );
 }
 
-function FormTextarea({ id, label, value, onChange }: any) {
+interface FormTextareaProps {
+  id: string;
+  label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
+}
+
+function FormTextarea({ id, label, value, onChange }: FormTextareaProps) {
   return (
     <div className="mb-6">
       <label
