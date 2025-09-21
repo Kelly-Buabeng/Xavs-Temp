@@ -131,8 +131,8 @@ export default function Home() {
               Get in touch and let’s discuss how we can help your business grow.
             </p>
             <div className="space-y-4 text-gray-300">
-              <p>Email: support@positivus.com</p>
-              <p>Phone: (+233) XXX-XXX-XXXX</p>
+              <p>Email: xavslabs@gmail.com</p>
+              <p>Phone: (+233) 054-395-1760</p>
               <p>Location: Accra, Ghana</p>
             </div>
           </div>
