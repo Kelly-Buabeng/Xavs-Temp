@@ -2,59 +2,66 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Services from "@/components/Services";
-
 
 export default function Home() {
   return (
     <div className="bg-white text-gray-900 font-sans">
-     
-
       {/* Hero */}
-<motion.section
-  className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
->
-  <div className="flex flex-col gap-6">
-    <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-      <span className="text-blue-500">XAVS</span>{" "}
-      <span>Labs</span>
-      <div>Research Security Intelligence</div>
-    </h1>
-    <p className="text-lg text-gray-600">
-      We help startups and SMEs grow with secure systems, AI-driven workflows, and business intelligence.
-    </p>
-    <div className="flex flex-wrap gap-4">
-      <Link
-        href="#"
-        className="bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
+      <motion.section
+        className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
       >
-        Work with us
-      </Link>
-      <Link
-        href="#"
-        className="bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
-      >
-        Explore Research
-      </Link>
-    </div>
-  </div>
-  <div className="w-full h-80 bg-gray-100 rounded-3xl flex items-center justify-center">
-    <span className="text-gray-400">[ Illustration ]</span>
-  </div>
-</motion.section>
-
+        <div className="flex flex-col gap-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            <span className="text-blue-500">XAVS</span>{" "}
+            <span>Labs</span>
+            <div>Research Security Intelligence</div>
+          </h1>
+          <p className="text-lg text-gray-600">
+            We help startups and SMEs grow with secure systems, AI-driven
+            workflows, and business intelligence.
+          </p>
+          <div className="flex flex-wrap gap-4">
+            <Link
+              href="#"
+              className="bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
+            >
+              Work with us
+            </Link>
+            <Link
+              href="#"
+              className="bg-gray-900 text-white px-6 py-3 rounded-xl font-semibold hover:bg-gray-800 transition"
+            >
+              Explore Research
+            </Link>
+          </div>
+        </div>
+        <div className="w-full h-80 bg-gray-100 rounded-3xl flex items-center justify-center overflow-hidden">
+          <Image
+            src="/hero23.png"
+            alt="Hero Illustration"
+            width={600}
+            height={400}
+            className="object-cover rounded-3xl"
+          />
+        </div>
+      </motion.section>
 
       {/* Partners */}
       <section className="max-w-7xl mx-auto px-6 py-12 flex flex-wrap justify-center gap-12 grayscale">
-        {["amazon", "dribbble", "hubspot", "notion", "netflix", "zoom"].map((logo) => (
-          <div key={logo} className="h-8 w-24 bg-gray-200 rounded" />
-        ))}
+        {["amazon", "dribbble", "hubspot", "notion", "netflix", "zoom"].map(
+          (logo) => (
+            <div key={logo} className="h-8 w-24 bg-gray-200 rounded" />
+          )
+        )}
       </section>
 
       {/* Services */}
       <Services />
+
       {/* Use Cases */}
       <motion.section
         className="max-w-7xl mx-auto px-6 py-24"
@@ -71,20 +78,22 @@ export default function Home() {
           </p>
         </div>
         <div className="grid md:grid-cols-3 gap-8">
-          {["E-commerce Growth", "B2B Lead Gen", "Startup Launch"].map((useCase, i) => (
-            <div
-              key={i}
-              className="p-8 bg-gray-50 border border-gray-200 rounded-2xl hover:shadow-md transition"
-            >
-              <h3 className="font-bold text-xl mb-4">{useCase}</h3>
-              <p className="text-gray-600 mb-4">
-                Short description of how we solved problems for clients.
-              </p>
-              <Link href="#" className="text-gray-900 font-medium underline">
-                Read More
-              </Link>
-            </div>
-          ))}
+          {["E-commerce Growth", "B2B Lead Gen", "Startup Launch"].map(
+            (useCase, i) => (
+              <div
+                key={i}
+                className="p-8 bg-gray-50 border border-gray-200 rounded-2xl hover:shadow-md transition"
+              >
+                <h3 className="font-bold text-xl mb-4">{useCase}</h3>
+                <p className="text-gray-600 mb-4">
+                  Short description of how we solved problems for clients.
+                </p>
+                <Link href="#" className="text-gray-900 font-medium underline">
+                  Read More
+                </Link>
+              </div>
+            )
+          )}
         </div>
       </motion.section>
 
@@ -103,12 +112,19 @@ export default function Home() {
             Empowering businesses through digital innovation
           </h2>
           <p className="text-lg text-gray-600">
-            We are a Ghanaian-based digital agency dedicated to helping companies
-            thrive in the digital world through modern strategies and solutions.
+            We are a Ghanaian-based digital agency dedicated to helping
+            companies thrive in the digital world through modern strategies and
+            solutions.
           </p>
         </div>
-        <div className="w-full h-80 bg-gray-100 rounded-3xl flex items-center justify-center">
-          <span className="text-gray-400">[ About Illustration ]</span>
+        <div className="w-full h-80 bg-gray-100 rounded-3xl flex items-center justify-center overflow-hidden">
+          <Image
+            src="/replacement.png"
+            alt="About Illustration"
+            width={600}
+            height={400}
+            className="object-cover rounded-3xl"
+          />
         </div>
       </motion.section>
 
