@@ -2,69 +2,33 @@ export const services = [
   {
     heading: "AI-Powered Business Automation",
     options: [
-      {
-        title: "Automated Task Management",
-        text: "AI-driven workflows for efficiency",
-      },
-      {
-        title: "AI-Powered Customer Support",
-        text: "Chatbots, voice assistants & more",
-      },
-      {
-        title: "Smart Business Intelligence & Data Insights",
-        text: "AI-powered analytics",
-      },
+      { title: "Automated Task Management", text: "AI-driven workflows for efficiency" },
+      { title: "AI-Powered Customer Support", text: "Chatbots, voice assistants & more" },
+      { title: "Smart Business Intelligence & Data Insights", text: "AI-powered analytics" },
     ],
   },
   {
     heading: "AI-Driven Cybersecurity & Cloud Protection",
     options: [
-      {
-        title: "AI-Based Threat Detection",
-        text: "Predict & prevent cyber threats",
-      },
-      {
-        title: "Cloud Security & Data Encryption",
-        text: "Keep business data secure",
-      },
-      {
-        title: "Real-Time Fraud Detection",
-        text: "Protect transactions & prevent fraud",
-      },
+      { title: "AI-Based Threat Detection", text: "Predict & prevent cyber threats" },
+      { title: "Cloud Security & Data Encryption", text: "Keep business data secure" },
+      { title: "Real-Time Fraud Detection", text: "Protect transactions & prevent fraud" },
     ],
   },
   {
     heading: "Cloud Transformation & IT Solutions",
     options: [
-      {
-        title: "Cloud Migration & Consulting",
-        text: "AWS, Azure, Google Cloud",
-      },
-      {
-        title: "CAI-Powered IT Support & Monitoring",
-        text: "Proactive issue detection & resolution",
-      },
-      {
-        title: "Cybersecurity Compliance & Data Protection",
-        text: "Stay secure & compliant",
-      },
+      { title: "Cloud Migration & Consulting", text: "AWS, Azure, Google Cloud" },
+      { title: "AI-Powered IT Support & Monitoring", text: "Proactive issue detection & resolution" },
+      { title: "Cybersecurity Compliance & Data Protection", text: "Stay secure & compliant" },
     ],
   },
   {
     heading: "Custom Software & AI Solutions",
     options: [
-      {
-        title: "Tailor-made AI software solutions for enterprises",
-        text: "Custom AI software development",
-      },
-      {
-        title: "Custom app & platform development",
-        text: "Web, mobile, desktop & more",
-      },
-      {
-        title: "AI-driven data processing & machine learning tools",
-        text: "Custom AI tools for your business",
-      },
+      { title: "Tailor-made AI software solutions for enterprises", text: "Custom AI software development" },
+      { title: "Custom app & platform development", text: "Web, mobile, desktop & more" },
+      { title: "AI-driven data processing & machine learning tools", text: "Custom AI tools for your business" },
     ],
   },
 ];

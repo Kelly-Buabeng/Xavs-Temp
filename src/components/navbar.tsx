@@ -17,70 +17,100 @@ export default function MainNavbar() {
 
   return (
     <header
-      className={`fixed top-0 z-50 w-full border-b transition-all duration-300
-        ${isScrolled
-          ? "bg-white dark:bg-black border-gray-200 dark:border-gray-800 shadow-md"
-          : "bg-white/30 dark:bg-black/30 backdrop-blur-md border-transparent"
-        }`}
+      className={`fixed top-0 z-50 w-full transition-all duration-300 border-b
+        ${isScrolled ? "bg-white border-gray-200" : "bg-white/80 backdrop-blur-md border-transparent"}
+      `}
     >
-      <div className="flex justify-between items-center px-6 lg:px-20 py-4">
+      <motion.nav
+        className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between"
+        initial={{ y: -50, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
         {/* Brand */}
         <Link href="/" className="text-2xl font-extrabold tracking-tight">
-          <span className="text-black dark:text-white">XAVS</span>
+          <span className="text-gray-900">XAVS</span>
           <span className="text-blue-500">LAB</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8 font-medium text-gray-700 dark:text-gray-300">
-          <Link href="/services" className="hover:text-blue-500 transition-colors">
-            Services
-          </Link>
-          <Link href="/company/about-us" className="hover:text-blue-500 transition-colors">
+        <div className="hidden md:flex gap-10 font-medium text-gray-700">
+          <Link
+            href="/company/about-us"
+            className="hover:text-gray-900 hover:underline underline-offset-4 transition"
+          >
             About Us
           </Link>
-          <Link href="/company/contact-us" className="hover:text-blue-500 transition-colors">
+          <Link
+            href="/services"
+            className="hover:text-gray-900 hover:underline underline-offset-4 transition"
+          >
+            Services
+          </Link>
+          <Link
+            href="/blog"
+            className="hover:text-gray-900 hover:underline underline-offset-4 transition"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/company/contact-us"
+            className="hover:text-gray-900 hover:underline underline-offset-4 transition"
+          >
             Contact Us
           </Link>
-          <Link href="/company/careers" className="hover:text-blue-500 transition-colors">
-            Careers
+        </div>
+
+        {/* CTA */}
+        <div className="hidden md:block">
+          <Link
+            href="/company/contact-us"
+            className="border border-gray-900 px-5 py-2 rounded-xl font-medium hover:bg-gray-900 hover:text-white transition"
+          >
+            Request a quote
           </Link>
-        </nav>
+        </div>
 
         {/* Mobile Toggle */}
         <button
-          className="lg:hidden text-gray-700 dark:text-gray-300"
+          className="md:hidden text-gray-700"
           onClick={() => setIsMenuOpen((prev) => !prev)}
         >
           {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-      </div>
+      </motion.nav>
 
       {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
-          <motion.nav
+          <motion.div
             initial={{ opacity: 0, y: -15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.25 }}
-            className="lg:hidden flex flex-col gap-3 px-6 py-4 bg-white dark:bg-black border-t border-gray-200 dark:border-gray-800"
+            className="md:hidden flex flex-col gap-4 px-6 py-6 bg-white border-t border-gray-200"
           >
-            <Link href="/" className="py-2 hover:text-blue-500">
+            <Link href="/" className="py-2 text-gray-700 hover:text-gray-900 hover:underline">
               Home
             </Link>
-            <Link href="/services" className="py-2 hover:text-blue-500">
-              Services
-            </Link>
-            <Link href="/company/about-us" className="py-2 hover:text-blue-500">
+            <Link href="/company/about-us" className="py-2 text-gray-700 hover:text-gray-900 hover:underline">
               About Us
             </Link>
-            <Link href="/company/contact-us" className="py-2 hover:text-blue-500">
+            <Link href="/services" className="py-2 text-gray-700 hover:text-gray-900 hover:underline">
+              Services
+            </Link>
+            <Link href="/blog" className="py-2 text-gray-700 hover:text-gray-900 hover:underline">
+              Blog
+            </Link>
+            <Link href="/company/contact-us" className="py-2 text-gray-700 hover:text-gray-900 hover:underline">
               Contact Us
             </Link>
-            <Link href="/company/careers" className="py-2 hover:text-blue-500">
-              Careers
+            <Link
+              href="/company/contact-us"
+              className="mt-4 border border-gray-900 px-5 py-2 rounded-xl font-medium text-center hover:bg-gray-900 hover:text-white transition"
+            >
+              Request a quote
             </Link>
-          </motion.nav>
+          </motion.div>
         )}
       </AnimatePresence>
     </header>
