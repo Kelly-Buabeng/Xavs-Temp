@@ -181,7 +181,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="max-w-7xl mx-auto px-6 py-12 border-t text-center text-gray-600 text-sm">
-        © {new Date().getFullYear()} Positivus. All rights reserved.
+        © {new Date().getFullYear()} XAVSlab. All rights reserved.
       </footer>
     </div>
   );
