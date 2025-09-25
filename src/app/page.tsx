@@ -56,7 +56,10 @@ export default function Home() {
       <section className="max-w-7xl mx-auto px-6 py-12 flex flex-wrap justify-center gap-12">
         {["amazon", "dribbble", "hubspot", "notion", "netflix", "zoom"].map(
           (logo) => (
-            <div key={logo} className="h-8 w-24 bg-zinc-800 rounded border border-zinc-700 opacity-60 hover:opacity-80 transition-opacity" />
+            <div
+              key={logo}
+              className="h-8 w-24 bg-zinc-800 rounded border border-zinc-700 opacity-60 hover:opacity-80 transition-opacity"
+            />
           )
         )}
       </section>
@@ -72,39 +75,46 @@ export default function Home() {
         viewport={{ once: true }}
       >
         <div className="mb-12">
-  <span className="bg-blue-500 text-white font-semibold px-4 py-2 rounded">
-    Case Studies
-  </span>
-  <p className="mt-4 text-lg text-white max-w-2xl">
-    Explore how we&apos;ve helped businesses achieve real results.
-  </p>
-</div>
-<div className="grid md:grid-cols-3 gap-8">
-  {/* Case 1 */}
-  <div className="p-8 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-blue-500/50 hover:shadow-md transition-all duration-300">
-    <h3 className="font-bold text-xl mb-4 text-white">E-commerce Growth</h3>
-    <p className="text-gray-400">
-      Implemented AI-driven product recommendations and secure checkout for a Ghanaian online retailer — boosting conversion rates by 32% and reducing cart abandonment.
-    </p>
-  </div>
+          <span className="bg-blue-500 text-white font-semibold px-4 py-2 rounded">
+            Case Studies
+          </span>
+          <p className="mt-4 text-lg text-white max-w-2xl">
+            Explore how we&apos;ve helped businesses achieve real results.
+          </p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Case 1 */}
+          <div className="p-8 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-blue-500/50 hover:shadow-md transition-all duration-300">
+            <h3 className="font-bold text-xl mb-4 text-white">
+              E-commerce Growth
+            </h3>
+            <p className="text-gray-400">
+              Implemented AI-driven product recommendations and secure checkout
+              for a Ghanaian online retailer — boosting conversion rates by 32%
+              and reducing cart abandonment.
+            </p>
+          </div>
 
-  {/* Case 2 */}
-  <div className="p-8 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-blue-500/50 hover:shadow-md transition-all duration-300">
-    <h3 className="font-bold text-xl mb-4 text-white">B2B Lead Gen</h3>
-    <p className="text-gray-400">
-      Built an automated lead-scoring platform for a pan-African IT services provider — improving sales efficiency and generating 3x more qualified opportunities.
-    </p>
-  </div>
+          {/* Case 2 */}
+          <div className="p-8 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-blue-500/50 hover:shadow-md transition-all duration-300">
+            <h3 className="font-bold text-xl mb-4 text-white">B2B Lead Gen</h3>
+            <p className="text-gray-400">
+              Built an automated lead-scoring platform for a pan-African IT
+              services provider — improving sales efficiency and generating 3x
+              more qualified opportunities.
+            </p>
+          </div>
 
-  {/* Case 3 */}
-  <div className="p-8 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-blue-500/50 hover:shadow-md transition-all duration-300">
-    <h3 className="font-bold text-xl mb-4 text-white">Startup Launch</h3>
-    <p className="text-gray-400">
-      Helped a fintech startup migrate to cloud infrastructure with built-in cybersecurity — cutting hosting costs by 40% and ensuring compliance from day one.
-    </p>
-  </div>
-</div>
-
+          {/* Case 3 */}
+          <div className="p-8 bg-zinc-900 border border-zinc-800 rounded-2xl hover:border-blue-500/50 hover:shadow-md transition-all duration-300">
+            <h3 className="font-bold text-xl mb-4 text-white">Startup Launch</h3>
+            <p className="text-gray-400">
+              Helped a fintech startup migrate to cloud infrastructure with
+              built-in cybersecurity — cutting hosting costs by 40% and ensuring
+              compliance from day one.
+            </p>
+          </div>
+        </div>
       </motion.section>
 
       {/* About Us */}
@@ -154,7 +164,8 @@ export default function Home() {
               Let&apos;s work together
             </h2>
             <p className="text-lg text-gray-300 mb-8">
-              Get in touch and let&apos;s discuss how we can help your business grow.
+              Get in touch and let&apos;s discuss how we can help your business
+              grow.
             </p>
             <div className="space-y-4 text-gray-300">
               <p>Email: xavslabs@gmail.com</p>
@@ -162,21 +173,31 @@ export default function Home() {
               <p>Location: Accra, Ghana</p>
             </div>
           </div>
-          <form className="bg-zinc-950 border border-zinc-800 text-gray-100 rounded-2xl p-8 shadow-lg">
+          <form
+            action="/api/contact"
+            method="POST"
+            className="bg-zinc-950 border border-zinc-800 text-gray-100 rounded-2xl p-8 shadow-lg"
+          >
             <div className="grid md:grid-cols-2 gap-4 mb-4">
               <input
                 type="text"
+                name="name"
                 placeholder="Full Name"
+                required
                 className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-100 placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Email"
+                required
                 className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-100 placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
               />
             </div>
             <textarea
+              name="message"
               placeholder="Your message"
+              required
               className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg h-32 mb-4 text-gray-100 placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors resize-none"
             ></textarea>
             <button
