@@ -17,6 +17,7 @@ export default function ContactPage() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [activeLocation, setActiveLocation] = useState("Accra");
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -24,14 +25,31 @@ export default function ContactPage() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 3000);
-  };
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  e.preventDefault();
+
+  try {
+    const res = await fetch("/api/contact", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(formData),
+    });
+
+    if (res.ok) {
+      setSubmitted(true);
+      setFormData({ name: "", email: "", message: "" });
+      setTimeout(() => setSubmitted(false), 3000);
+    } else {
+      console.error("Failed to send message");
+    }
+  } catch (error) {
+    console.error("Error submitting form:", error);
+  }
+};
+
 
   return (
-    <div className="bg-white text-gray-900 font-sans min-h-screen flex flex-col">
+    <div className="bg-zinc-950 text-white font-sans min-h-screen flex flex-col">
       {/* Floating Bot Icon */}
       <div className="fixed right-4 bottom-6 z-50">
         <BotIcon />
@@ -44,8 +62,9 @@ export default function ContactPage() {
         animate={{ opacity: 1, y: 0 }}
       >
         <h1 className="text-5xl font-extrabold mb-4">Contact Us</h1>
-        <p className="text-lg text-gray-600">
-          We’d love to hear from you! Get in touch and let’s build something great together.
+        <p className="text-lg text-zinc-400">
+          We’d love to hear from you! Get in touch and let’s build something
+          great together.
         </p>
       </motion.section>
 
@@ -60,7 +79,7 @@ export default function ContactPage() {
           className="space-y-8"
         >
           {/* Info Block */}
-          <div className="rounded-2xl border border-gray-200 p-8 bg-gray-50">
+          <div className="rounded-2xl border border-zinc-800 p-8 bg-zinc-900">
             <h2 className="text-xl font-bold mb-6">Get In Touch</h2>
             <div className="space-y-6">
               <InfoRow
@@ -71,12 +90,12 @@ export default function ContactPage() {
               <InfoRow
                 icon={<Mail className="h-5 w-5" />}
                 label="Email"
-                value="hello@xavslabs.com"
+                value="xavslabs@gmail.com"
               />
               <InfoRow
                 icon={<MapPin className="h-5 w-5" />}
                 label="Address"
-                value="123 Tech Street, Accra, Ghana"
+                value="Accra, Ghana"
               />
             </div>
 
@@ -85,7 +104,10 @@ export default function ContactPage() {
               <h3 className="font-semibold mb-3">Follow Us</h3>
               <div className="flex space-x-3">
                 <SocialIcon href="#" Icon={Facebook} />
-                <SocialIcon href="#" Icon={Twitter} />
+                <SocialIcon
+                  href="https://www.linkedin.com/company/xavs-technologies/posts/?feedView=all"
+                  Icon={Twitter}
+                />
                 <SocialIcon href="#" Icon={Instagram} />
                 <SocialIcon href="#" Icon={Youtube} />
               </div>
@@ -93,7 +115,7 @@ export default function ContactPage() {
           </div>
 
           {/* Locations Block */}
-          <div className="rounded-2xl border border-gray-200 p-6 bg-gray-50">
+          <div className="rounded-2xl border border-zinc-800 p-6 bg-zinc-900">
             <h3 className="font-semibold mb-3">Our Locations</h3>
             <div className="flex space-x-3 mb-4">
               {["Accra", "Nigeria", "UK"].map((loc) => (
@@ -102,8 +124,8 @@ export default function ContactPage() {
                   onClick={() => setActiveLocation(loc)}
                   className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
                     activeLocation === loc
-                      ? "bg-gray-900 text-white"
-                      : "bg-white border border-gray-200 hover:bg-gray-100"
+                      ? "bg-blue-500 text-white"
+                      : "bg-zinc-800 text-zinc-300 hover:bg-zinc-700"
                   }`}
                 >
                   {loc}
@@ -116,7 +138,7 @@ export default function ContactPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.3 }}
-              className="h-56 rounded-xl overflow-hidden border"
+              className="h-56 rounded-xl overflow-hidden border border-zinc-800"
             >
               <iframe
                 src={
@@ -145,7 +167,7 @@ export default function ContactPage() {
         >
           <form
             onSubmit={handleSubmit}
-            className="p-8 rounded-2xl border border-gray-200 bg-gray-50"
+            className="p-8 rounded-2xl border border-zinc-800 bg-zinc-900"
           >
             <FormInput
               id="name"
@@ -169,9 +191,14 @@ export default function ContactPage() {
 
             <button
               type="submit"
-              className="w-full bg-gray-900 hover:bg-gray-800 text-white font-semibold py-3 rounded-xl transition"
+              disabled={loading}
+              className="w-full bg-blue-500 hover:bg-blue-400 text-white font-semibold py-3 rounded-xl transition disabled:opacity-50"
             >
-              {submitted ? "Message Sent!" : "Send Message"}
+              {loading
+                ? "Sending..."
+                : submitted
+                ? "Message Sent!"
+                : "Send Message"}
             </button>
           </form>
         </motion.div>
@@ -192,10 +219,10 @@ function InfoRow({
 }) {
   return (
     <div className="flex items-start">
-      <span className="p-2 rounded-full bg-gray-100 mr-4">{icon}</span>
+      <span className="p-2 rounded-full bg-zinc-800 mr-4">{icon}</span>
       <div>
-        <h3 className="font-semibold">{label}</h3>
-        <p className="text-gray-600">{value}</p>
+        <h3 className="font-semibold text-white">{label}</h3>
+        <p className="text-zinc-400">{value}</p>
       </div>
     </div>
   );
@@ -205,9 +232,9 @@ function SocialIcon({ href, Icon }: { href: string; Icon: React.ElementType }) {
   return (
     <a
       href={href}
-      className="p-2 rounded-full border border-gray-200 hover:bg-gray-100 transition"
+      className="p-2 rounded-full border border-zinc-800 bg-zinc-900 hover:bg-zinc-800 transition"
     >
-      <Icon className="h-5 w-5 text-gray-700" />
+      <Icon className="h-5 w-5 text-zinc-300" />
     </a>
   );
 }
@@ -225,7 +252,7 @@ function FormInput({ id, label, value, onChange, type = "text" }: FormInputProps
     <div className="mb-6">
       <label
         htmlFor={id}
-        className="block text-sm font-semibold mb-2 text-gray-800"
+        className="block text-sm font-semibold mb-2 text-zinc-300"
       >
         {label}
       </label>
@@ -236,7 +263,7 @@ function FormInput({ id, label, value, onChange, type = "text" }: FormInputProps
         value={value}
         onChange={onChange}
         required
-        className="w-full p-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-gray-900"
+        className="w-full p-3 border border-zinc-800 rounded-lg bg-zinc-950 text-white focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );
@@ -254,7 +281,7 @@ function FormTextarea({ id, label, value, onChange }: FormTextareaProps) {
     <div className="mb-6">
       <label
         htmlFor={id}
-        className="block text-sm font-semibold mb-2 text-gray-800"
+        className="block text-sm font-semibold mb-2 text-zinc-300"
       >
         {label}
       </label>
@@ -265,7 +292,7 @@ function FormTextarea({ id, label, value, onChange }: FormTextareaProps) {
         onChange={onChange}
         required
         rows={4}
-        className="w-full p-3 border border-gray-200 rounded-lg bg-white focus:ring-2 focus:ring-gray-900"
+        className="w-full p-3 border border-zinc-800 rounded-lg bg-zinc-950 text-white focus:ring-2 focus:ring-blue-500"
       />
     </div>
   );
