@@ -20,8 +20,8 @@ export async function POST(req: Request) {
 
     // Send email via Resend
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev", // can be changed to your custom verified domain
-      to: "buabengkelly@gmail.com", // recipient (shared for all forms)
+      from: "onboarding@resend.dev", // change to your verified sender
+      to: "buabengkelly@gmail.com", // recipient
       subject: `New Contact Request from ${name}`,
       html: `
         <h2>New Contact Request</h2>
@@ -32,11 +32,13 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json({ success: true, data });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error("Resend API error:", error);
-    return NextResponse.json(
-      { error: error.message || "Failed to send email" },
-      { status: 500 }
-    );
+
+    // Safely extract a message if available
+    const message =
+      error instanceof Error ? error.message : "Failed to send email";
+
+    return NextResponse.json({ error: message }, { status: 500 });
   }
 }
