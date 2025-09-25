@@ -6,10 +6,9 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req: Request) {
   try {
-    const formData = await req.formData();
-    const name = formData.get("name") as string;
-    const email = formData.get("email") as string;
-    const message = formData.get("message") as string;
+    // Parse JSON body instead of formData
+    const body = await req.json();
+    const { name, email, message } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -20,8 +19,8 @@ export async function POST(req: Request) {
 
     // Send email via Resend
     const data = await resend.emails.send({
-      from: "onboarding@resend.dev", // change to your verified sender
-      to: "buabengkelly@gmail.com", // recipient
+      from: "onboarding@resend.dev", // required for free/test mode
+      to: "buabengkelly@gmail.com",  // only works with your own Gmail in test mode
       subject: `New Contact Request from ${name}`,
       html: `
         <h2>New Contact Request</h2>
@@ -34,11 +33,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, data });
   } catch (error: unknown) {
     console.error("Resend API error:", error);
-
-    // Safely extract a message if available
-    const message =
-      error instanceof Error ? error.message : "Failed to send email";
-
-    return NextResponse.json({ error: message }, { status: 500 });
+    return NextResponse.json(
+      { error: (error as Error).message || "Failed to send email" },
+      { status: 500 }
+    );
   }
 }

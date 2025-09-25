@@ -4,8 +4,41 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Services from "@/components/Services";
+import { useState } from "react";
 
 export default function Home() {
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("loading");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.ok) {
+        setStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+        setTimeout(() => setStatus("idle"), 3000);
+      } else {
+        setStatus("error");
+      }
+    } catch (err) {
+      setStatus("error");
+    }
+  };
+
   return (
     <div className="bg-zinc-950 text-white font-sans">
       {/* Hero */}
@@ -174,8 +207,7 @@ export default function Home() {
             </div>
           </div>
           <form
-            action="/api/contact"
-            method="POST"
+            onSubmit={handleSubmit}
             className="bg-zinc-950 border border-zinc-800 text-gray-100 rounded-2xl p-8 shadow-lg"
           >
             <div className="grid md:grid-cols-2 gap-4 mb-4">
@@ -184,6 +216,8 @@ export default function Home() {
                 name="name"
                 placeholder="Full Name"
                 required
+                value={formData.name}
+                onChange={handleChange}
                 className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-100 placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
               />
               <input
@@ -191,6 +225,8 @@ export default function Home() {
                 name="email"
                 placeholder="Email"
                 required
+                value={formData.email}
+                onChange={handleChange}
                 className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg text-gray-100 placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors"
               />
             </div>
@@ -198,13 +234,22 @@ export default function Home() {
               name="message"
               placeholder="Your message"
               required
+              value={formData.message}
+              onChange={handleChange}
               className="w-full p-3 bg-zinc-800 border border-zinc-700 rounded-lg h-32 mb-4 text-gray-100 placeholder-gray-400 focus:border-blue-400 focus:outline-none transition-colors resize-none"
             ></textarea>
             <button
               type="submit"
-              className="bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-400 transition-all duration-300 shadow-lg"
+              disabled={status === "loading"}
+              className="bg-blue-500 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-400 transition-all duration-300 shadow-lg disabled:opacity-50"
             >
-              Send Message
+              {status === "loading"
+                ? "Sending..."
+                : status === "success"
+                ? "Message Sent!"
+                : status === "error"
+                ? "Failed, Try Again"
+                : "Send Message"}
             </button>
           </form>
         </div>
