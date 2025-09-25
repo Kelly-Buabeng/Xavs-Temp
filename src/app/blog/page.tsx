@@ -10,7 +10,7 @@ const BlogPage: React.FC = () => {
           Blogs Coming Soon
         </h1>
         <p className="text-lg text-white max-w-xl mx-auto leading-relaxed">
-          We're working on insightful articles and updates. Stay tuned for the
+          We&apos;re working on insightful articles and updates. Stay tuned for the
           latest news from XAVS LAB.
         </p>
       </div>

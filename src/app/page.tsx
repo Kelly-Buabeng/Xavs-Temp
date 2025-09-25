@@ -76,7 +76,7 @@ export default function Home() {
     Case Studies
   </span>
   <p className="mt-4 text-lg text-white max-w-2xl">
-    Explore how we've helped businesses achieve real results.
+    Explore how we&apos;ve helped businesses achieve real results.
   </p>
 </div>
 <div className="grid md:grid-cols-3 gap-8">
@@ -151,10 +151,10 @@ export default function Home() {
               Contact Us
             </span>
             <h2 className="text-4xl font-extrabold mt-6 mb-6 text-white">
-              Let's work together
+              Let&apos;s work together
             </h2>
             <p className="text-lg text-gray-300 mb-8">
-              Get in touch and let's discuss how we can help your business grow.
+              Get in touch and let&apos;s discuss how we can help your business grow.
             </p>
             <div className="space-y-4 text-gray-300">
               <p>Email: xavslabs@gmail.com</p>
